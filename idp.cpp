@@ -1,4 +1,4 @@
-#include "mep.hpp"
+#include "cris.hpp"
 
 void out_print_address(op_t &x, ea_t /*pc*/)
 {
@@ -56,7 +56,7 @@ static int idaapi notify(processor_t::idp_notify msgid, ...) // Various messages
         (void)li; // unused variable
         if (machine_type == 0xF00D)
         {
-          *p_procname = "Toshiba MeP";
+          *p_procname = "Axis CRIS";
           code = 0xF00D;
         }
         else
@@ -96,11 +96,11 @@ static void idaapi footer(void)
 
 //--------------------------------------------------------------------------
 
-static const asm_t mepasm =
+static const asm_t crisasm =
 {
   0,
   0,
-  "MEP assembler",
+  "CRIS assembler",
   0,
   NULL,
   NULL,
@@ -149,7 +149,7 @@ static const asm_t mepasm =
   NULL,    // sizeof
 };
 
-static const asm_t *const asms[] = { &mepasm, NULL };
+static const asm_t *const asms[] = { &crisasm, NULL };
 
 //-----------------------------------------------------------------------
 static const uchar retcode_1[] = { 0x02, 0x70 };
@@ -162,16 +162,16 @@ static const bytes_t retcodes[] =
 
 //-----------------------------------------------------------------------
 // use simple translation
-static ea_t idaapi mep_translate(ea_t base, adiff_t offset)
+static ea_t idaapi cris_translate(ea_t base, adiff_t offset)
 {
   return base+offset;
 }
 
 //--------------------------------------------------------------------------
 
-#define FAMILY "Toshiba MeP family:"
-static const char *const shnames[] = { "MeP", NULL };
-static const char *const lnames[]  = { FAMILY"Toshiba MeP C5 media engine", NULL };
+#define FAMILY "Axis CRIS family:"
+static const char *const shnames[] = { "CRIS", NULL };
+static const char *const lnames[]  = { FAMILY"", NULL };
 
 //--------------------------------------------------------------------------
 
@@ -179,13 +179,13 @@ static const char *const lnames[]  = { FAMILY"Toshiba MeP C5 media engine", NULL
 //      Processor Definition
 //-----------------------------------------------------------------------
 
-#define PLFM_MEP 0xF00D
+#define PLFM_CRIS 0xF00D
 #include "reg.cpp"
 
 idaman processor_t ida_module_data LPH =
 {
   IDP_INTERFACE_VERSION,        // version
-  PLFM_MEP,                      // id
+  PLFM_CRIS,                      // id
   PR_USE32
   |PRN_HEX
   |PR_WORD_INS
@@ -216,7 +216,7 @@ idaman processor_t ida_module_data LPH =
 
   out,
   outop,
-  mep_data,    //intel_data,
+  cris_data,    //intel_data,
   NULL,       // compare operands
   NULL,       // can have type
 
@@ -236,10 +236,10 @@ idaman processor_t ida_module_data LPH =
   NULL,                 // No known code start sequences
   retcodes,
 
-  0, MEP_INSN_RI_26+1,
+  0, CRIS_INSN_RI_26+1,
   Instructions,
   NULL,                 // int  (*is_far_jump)(int icode);
-  mep_translate,        // Translation function for offsets
+  cris_translate,        // Translation function for offsets
   0,                    // int tbyte_size;  -- doesn't exist
   NULL,                 // int (*realcvt)(void *m, ushort *e, ushort swt);
   { 0, 0, 0, 0 },       // char real_width[4];
@@ -256,7 +256,7 @@ idaman processor_t ida_module_data LPH =
   NULL,                 // int (*get_frame_retsize(func_t *pfn)
   NULL,                 // void (*gen_stkvar_def)(char *buf,const member_t *mptr,int32 v);
   gen_spcdef,           // Generate text representation of an item in a special segment
-  MEP_INSN_RET,         // Icode of return instruction. It is ok to give any of possible return instructions
+  CRIS_INSN_RET,         // Icode of return instruction. It is ok to give any of possible return instructions
   NULL,                 // const char *(*set_idp_options)(const char *keyword,int value_type,const void *value);
   NULL,                 // int (*is_align_insn)(ea_t ea);
   NULL,                 // mvm_t *mvm;

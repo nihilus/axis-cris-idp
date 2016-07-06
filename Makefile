@@ -5,7 +5,7 @@ ifneq ($(or $(__MAC__),$(__LINUX__)),)
 __CFLAGS=-std=c++11
 endif
 
-include ../module.mak
+include ../../module/module.mak
 
 # MAKEDEP dependency list ------------------
 $(F)ana$(O)     : $(I)area.hpp $(I)auto.hpp $(I)bitrange.hpp $(I)bytes.hpp   \
