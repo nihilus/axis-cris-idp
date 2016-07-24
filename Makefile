@@ -14,14 +14,14 @@ $(F)ana$(O)     : $(I)area.hpp $(I)auto.hpp $(I)bitrange.hpp $(I)bytes.hpp   \
               $(I)loader.hpp $(I)nalt.hpp $(I)name.hpp $(I)netnode.hpp  \
               $(I)offset.hpp $(I)pro.h $(I)queue.hpp $(I)segment.hpp    \
               $(I)srarea.hpp $(I)ua.hpp $(I)xref.hpp ../idaidp.hpp      \
-              ana.cpp ins.hpp mep.hpp
+              ana.cpp ins.hpp cris.hpp
 $(F)emu$(O)     : $(I)area.hpp $(I)auto.hpp $(I)bitrange.hpp $(I)bytes.hpp   \
               $(I)fpro.h $(I)funcs.hpp $(I)ida.hpp $(I)idp.hpp          \
               $(I)kernwin.hpp $(I)lines.hpp $(I)llong.hpp $(I)frame.hpp \
               $(I)loader.hpp $(I)nalt.hpp $(I)name.hpp $(I)netnode.hpp  \
               $(I)offset.hpp $(I)pro.h $(I)queue.hpp $(I)segment.hpp    \
               $(I)srarea.hpp $(I)ua.hpp $(I)xref.hpp ../idaidp.hpp      \
-              emu.cpp ins.hpp mep.hpp
+              emu.cpp ins.hpp cris.hpp
 $(F)ins$(O)     : $(I)area.hpp $(I)bitrange.hpp $(I)bytes.hpp $(I)fpro.h     \
               $(I)funcs.hpp $(I)ida.hpp $(I)idp.hpp $(I)kernwin.hpp     \
               $(I)lines.hpp $(I)llong.hpp $(I)nalt.hpp $(I)netnode.hpp  \
@@ -33,18 +33,18 @@ $(F)out$(O)     : $(I)area.hpp $(I)auto.hpp $(I)bitrange.hpp $(I)bytes.hpp   \
               $(I)loader.hpp $(I)nalt.hpp $(I)name.hpp $(I)netnode.hpp  \
               $(I)offset.hpp $(I)pro.h $(I)queue.hpp $(I)segment.hpp    \
               $(I)srarea.hpp $(I)ua.hpp $(I)xref.hpp ../idaidp.hpp      \
-              ins.hpp out.cpp mep.hpp
+              ins.hpp out.cpp cris.hpp
 $(F)reg$(O)     : $(I)area.hpp $(I)auto.hpp $(I)bitrange.hpp $(I)bytes.hpp   \
               $(I)diskio.hpp $(I)entry.hpp $(I)fpro.h $(I)funcs.hpp     \
               $(I)ida.hpp $(I)idp.hpp $(I)kernwin.hpp $(I)lines.hpp     \
               $(I)llong.hpp $(I)loader.hpp $(I)nalt.hpp $(I)name.hpp    \
               $(I)netnode.hpp $(I)offset.hpp $(I)pro.h $(I)queue.hpp    \
               $(I)segment.hpp $(I)srarea.hpp $(I)ua.hpp $(I)xref.hpp    \
-              ../idaidp.hpp ../iocommon.cpp ins.hpp reg.cpp mep.hpp
+              ../idaidp.hpp ../iocommon.cpp ins.hpp reg.cpp cris.hpp
 idp$(O)        : $(I)area.hpp $(I)auto.hpp $(I)bitrange.hpp $(I)bytes.hpp   \
               $(I)diskio.hpp $(I)entry.hpp $(I)fpro.h $(I)funcs.hpp     \
               $(I)ida.hpp $(I)idp.hpp $(I)kernwin.hpp $(I)lines.hpp     \
               $(I)llong.hpp $(I)loader.hpp $(I)nalt.hpp $(I)name.hpp    \
               $(I)netnode.hpp $(I)offset.hpp $(I)pro.h $(I)queue.hpp    \
               $(I)segment.hpp $(I)srarea.hpp $(I)ua.hpp $(I)xref.hpp    \
-              ../idaidp.hpp ../iocommon.cpp ins.hpp reg.cpp mep.hpp
+              ../idaidp.hpp ../iocommon.cpp ins.hpp reg.cpp cris.hpp
